@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- 서비스 객체 등의 소스에서 필요한 객체등록 시 사용하는 어노테이션을 조사하여 등록 -->
-	<context:component-scan base-package="com.ezen.biz"></context:component-scan>
+	<context:component-scan base-package="com.movie.biz"></context:component-scan>
 	
 	<!-- 예외처리, XML 메세지 변환 등 어노테이션 관리 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
@@ -54,7 +54,7 @@
 	</tx:advice>	
 	
 	<aop:config>
-		<aop:pointcut expression="execution(* com.ezen.biz..*(..))" id="txPoint"/>
+		<aop:pointcut expression="execution(* com.movie.biz..*(..))" id="txPoint"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
 	</aop:config>
 </beans>
