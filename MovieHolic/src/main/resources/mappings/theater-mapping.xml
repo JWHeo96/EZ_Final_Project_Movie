@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TheaterMapper">
+
+	<!-- 예매: 극장 조회를 위한 권역 선택 -->
+	<select id="getTheaterLocal" resultType="theater">
+		SELECT DISTINCT local FROM theater
+	</select>
+	
+	<!-- 예매: 해당 권역에 존재하는 극장 조회 -->	
+ 	<select id="getTheaterList" resultType="theater">
+		SELECT numb, name FROM theater WHERE local = #{local}
+	</select>
+	
+	
+</mapper>

@@ -16,9 +16,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String home(Model model) {
-		// 메인 화면 (예시)
-		// List<MoiveVO> bestMovieList = movieService.getBestMoveiList();
-		// model.addAttribute("bestMovieList", bestMovieList);
+
 		
 		return "index";
 	}

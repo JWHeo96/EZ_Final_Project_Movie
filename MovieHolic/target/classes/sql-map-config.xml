@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
-<!--  프로젝트 시작 시 주석처리 제거
 	<typeAliases>
-		<typeAliase type="com.movie.biz.dto." alias=""></typeAliase>
+		<typeAlias type="com.movie.biz.dto.TheaterVO" alias="theater"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="mappings/" />
+		<mapper resource="mappings/theater-mapping.xml" />
 	</mappers>
--->
 </configuration>
