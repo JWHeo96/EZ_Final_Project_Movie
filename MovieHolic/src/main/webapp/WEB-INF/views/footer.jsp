@@ -4,9 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Header</title>
+<style>
+	#footer {
+		background-color:blue;
+		height:100px;
+	}
+</style>
 </head>
 <body>
-
+	<footer>
+		<div id="footer">
+		<h2>푸터입니다.</h2>
+		</div>
+	</footer>
 </body>
 </html>
