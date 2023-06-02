@@ -6,7 +6,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class PageMaker {
 	
 	private Criteria cri;	
-	private int totalCount;	// 총 게시글의 수
+	private int totalCount;	// 총 게시글의 수1
 	private int startPage;	// 화면에 보여질 첫번째 페이지 번호
 	private int endPage;	// 화면에 보여질 마지막 페이지 번호
 	private boolean prev;	// <이전> 버튼 표시 여부

@@ -14,16 +14,16 @@ public class BeforeAdvice {
 	public void beforeLog(JoinPoint jp) {
 		String method = jp.getSignature().getName();
 		Object[] args = jp.getArgs();
-		// ¶Ç´Â
+		// ë˜ëŠ”
 		//Signature sig = jp.getSignature();
 		//String method = sig.getName();
 		
 		if (args.length == 0) {
-			System.out.println("[»çÀüÃ³¸®] ºñÁî´Ï½º ·ÎÁ÷ ¼öÇàÀü ÀÛ¾÷...");
-			System.out.println("[»çÀü Ã³¸®]" + method+ "() ARGS: ¾øÀ½");
+			System.out.println("[ì‚¬ì „ì²˜ë¦¬] ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ ìˆ˜í–‰ì „ ì‘ì—…...");
+			System.out.println("[ì‚¬ì „ ì²˜ë¦¬]" + method+ "() ARGS: ì—†ìŒ");
 		} else {
-			System.out.println("[»çÀüÃ³¸®] ºñÁî´Ï½º ·ÎÁ÷ ¼öÇàÀü ÀÛ¾÷...");
-			System.out.println("[»çÀü Ã³¸®]" + method+ "() ARGS: " + args[0].toString());
+			System.out.println("[ì‚¬ì „ì²˜ë¦¬] ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ ìˆ˜í–‰ì „ ì‘ì—…...");
+			System.out.println("[ì‚¬ì „ ì²˜ë¦¬]" + method+ "() ARGS: " + args[0].toString());
 		}
 	}
 }

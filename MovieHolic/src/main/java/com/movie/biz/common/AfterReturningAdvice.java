@@ -12,14 +12,14 @@ public class AfterReturningAdvice {
 
 	@AfterReturning(pointcut="PointcutCommon.getPointcut()", returning="returnObj")
 	public void afterLog(JoinPoint jp, Object returnObj) {
-		String method = jp.getSignature().getName(); // ¸Ş¼Òµå¸í
+		String method = jp.getSignature().getName(); // ë©”ì†Œë“œëª…
 		
 		if (returnObj != null) {
-			System.out.printf("[»çÈÄ Ã³¸®] %s(), ¸®ÅÏ°ª: %s\n", 
+			System.out.printf("[ì‚¬í›„ ì²˜ë¦¬] %s(), ë¦¬í„´ê°’: %s\n", 
 				method, returnObj.toString());
 		} else {
-			System.out.printf("[»çÈÄ Ã³¸®] %s(), ¸®ÅÏ°ª: %s\n", 
-					method, "¸®ÅÏ°ª ¾øÀ½");
+			System.out.printf("[ì‚¬í›„ ì²˜ë¦¬] %s(), ë¦¬í„´ê°’: %s\n", 
+					method, "ë¦¬í„´ê°’ ì—†ìŒ");
 		}
 	}
 }

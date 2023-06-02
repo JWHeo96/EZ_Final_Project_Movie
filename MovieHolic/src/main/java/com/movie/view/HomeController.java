@@ -16,7 +16,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String home(Model model) {
-		// ¿µÈ­ ¸ñ·Ï Á¶È¸ (¿¹½Ã)
+		// ë©”ì¸ í™”ë©´ (ì˜ˆì‹œ)
 		// List<MoiveVO> bestMovieList = movieService.getBestMoveiList();
 		// model.addAttribute("bestMovieList", bestMovieList);
 		
