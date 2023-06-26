@@ -37,8 +37,8 @@ public class Criteria {
 	}
 
 	public void setRowsPerPage(int rowsPerPage) {
-		if (rowsPerPage <= 0 || rowsPerPage > 20) {
-			this.rowsPerPage = 20;
+		if (rowsPerPage <= 0 || rowsPerPage > 30) {
+			this.rowsPerPage = 30;
 		} else {
 			this.rowsPerPage = rowsPerPage;
 		}

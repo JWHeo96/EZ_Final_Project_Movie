@@ -1,30 +1,73 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>기본 에러 화면</title>
-</head>
-<body bgcolor="#ffffff" text="#000000">
+<style>
+	body {
+		background-color: #f2f2f2;
+		color: #333333;
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.container {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 20px;
+	}
 
-	<table style="width:100%; border:1">
-		<tr>
-			<td align="center" bgcolor="orange"><b>기본 에러 화면입니다.</b>
-			</td>
-		</tr>
-	</table>
-	<!-- 에러 메시지 -->
-	<table style="width:100%; borde:1;">
-		<tr>
-			<td align="center">
-			<br><br><br><br><br>
-			Message: ${exception.message}
-			<br><br><br><br><br>
-			</td>
-		</tr>
-	</table>
-	<a href="index">메인 화면으로 이동</a>
+	.error-box {
+		background-color: #ffffff;
+		border: 1px solid #dddddd;
+		border-radius: 5px;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.error-box h1 {
+		color: #ff6600;
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+
+	.error-message {
+		margin-top: 50px;
+		font-size: 18px;
+	}
+
+	.error-link {
+		display: inline-block;
+		margin-top: 20px;
+		color: #000000;
+		text-decoration: none;
+		border: 1px solid #dddddd;
+		border-radius: 5px;
+		padding: 10px 20px;
+		background-color: #eeeeee;
+	}
+
+	.error-link:hover {
+		background-color: #dddddd;
+	}
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="error-box">
+		<h1>기본 에러 화면입니다.</h1>
+	</div>
+
+	<div class="error-message">
+		Message: ${exception.message}
+	</div>
+
+	<a class="error-link" href="index">메인 화면으로 이동</a>
+</div>
+
 </body>
 </html>

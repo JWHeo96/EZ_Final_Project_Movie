@@ -1,0 +1,307 @@
+---------------------------------------------------------------------------------------------------
+-------------------------------------------- 테이블 생성 --------------------------------------------
+---------------------------------------------------------------------------------------------------		
+
+-- 생성 1.회원 테이블
+CREATE TABLE users (
+	id	VARCHAR2(20)	NOT NULL PRIMARY KEY,   -- 회원 아이디
+	pwd	VARCHAR2(30)	NOT NULL,               -- 회원 비밀번호
+	name	VARCHAR2(20)	NOT NULL,           -- 회원 이름
+	tel	VARCHAR2(20)	NOT NULL,               -- 회원 전화번호
+	birth	VARCHAR2(20)	NOT NULL,           -- 회원 생년월일
+    email VARCHAR2(30) NOT NULL,                -- 회원 이메일
+	regdate	DATE	DEFAULT sysdate,            -- 회원 등록일
+	useyn	VARCHAR2(2)		DEFAULT 'y',        -- 회원 탈퇴 여부
+	point	NUMBER		DEFAULT 0               -- 회원 보유 포인트
+);
+
+-- 생성 2. 관리자 테이블
+CREATE TABLE admin (
+	id	VARCHAR2(20)	NOT NULL PRIMARY KEY,      -- 관리자 아이디
+	pwd	VARCHAR2(30)	NOT NULL,                  -- 관리자 비밀번호
+	name	VARCHAR2(20)	NOT NULL,              -- 관리자 이름
+	tel	VARCHAR2(20)	NOT NULL                  -- 관리자 전화번호
+);
+
+-- 생성 3. 공지사항 시퀀스
+CREATE SEQUENCE notice_seq start with 1 increment by 1;
+-- 생성 3. 공지사항 테이블
+CREATE TABLE notice (
+	numb	NUMBER	NOT NULL PRIMARY KEY,       -- 공지사항 번호
+	title	VARCHAR2(80)	NOT NULL,           -- 공지사항 제목
+	content	VARCHAR2(255)	NOT NULL,           -- 공지사항 내용
+	regdate	DATE	DEFAULT sysdate            -- 공지사항 등록일   
+);
+
+-- 생성 4. 질문 시퀀스
+CREATE SEQUENCE qna_seq start with 1 increment by 1; 
+-- 생성 4. 질문 테이블
+CREATE TABLE qna (
+	numb	NUMBER	NOT NULL PRIMARY KEY,       -- 질문 번호
+	title	VARCHAR2(80)	NOT NULL,           -- 질문 제목
+	content	VARCHAR2(255)	NOT NULL,           -- 질문 내용
+	reply	VARCHAR2(255)	NULL,               -- 답변 내용
+	repyn	VARCHAR2(2)		DEFAULT 'n',        -- 답변 여부
+	regdate	DATE	DEFAULT sysdate,            -- 질문 등록일
+	user_id	VARCHAR2(20)	NOT NULL,           -- 질문 등록 사용자 아이디
+    CONSTRAINT fk_users FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- 생성 5. 영화 시퀀스
+CREATE SEQUENCE movie_seq start with 1 increment by 1;
+-- 생성 5. 영화 테이블
+CREATE TABLE movie (
+  numb        NUMBER PRIMARY KEY,           -- 영화 번호
+  title       VARCHAR2(100)  NOT NULL,       -- 영화 제목
+  story       VARCHAR2(2000) NOT NULL,       -- 영화 줄거리
+  genre       VARCHAR2(50)  NOT NULL,       -- 영화 장르
+  director    VARCHAR2(50)  NOT NULL,       -- 영화 감독
+  caster        VARCHAR2(300) NOT NULL,     -- 영화 장르
+  poster_url   VARCHAR2(80) ,               -- 영화 메인 포스터
+  opendate    DATE  NOT NULL,               -- 영화 개봉일
+  regdate     DATE  DEFAULT sysdate,        -- 영화 정보 등록일
+  playtime    NUMBER NOT NULL,                      -- 영화 상영시간
+  age         NUMBER  NOT NULL,             -- 영화 관람 등급
+  nation      VARCHAR2(30)  NOT NULL,       -- 영화 개봉국가
+  ny           VARCHAR2(2) NOT NULL,         -- 영화 상영 여부
+  trailer       VARCHAR2(300) NOT NULL          -- 트레일러 주소
+);
+
+-- 생성 6. 포스터 시퀀스
+CREATE SEQUENCE poster_seq start with 1 increment by 1; 
+-- 생성 6. 포스터 테이블
+CREATE TABLE poster (
+	numb	NUMBER	NOT NULL	PRIMARY KEY,        -- 포스터 번호
+	stillcut	VARCHAR2(255)	NOT NULL,           -- 스틸컷 이미지
+	movie_numb	NUMBER	NOT NULL,                   -- 영화 번호
+    CONSTRAINT fk_mo  FOREIGN KEY (movie_numb) REFERENCES movie(numb)
+);
+
+
+-- 생성 7. 극장 시퀀스
+CREATE SEQUENCE theater_seq start with 1 increment by 1; 
+-- 생성 7. 극장 테이블
+CREATE TABLE theater (
+	numb	NUMBER	NOT NULL	PRIMARY KEY,        -- 극장 번호
+	name	VARCHAR2(20)	NOT NULL,               -- 극장 이름
+	local	VARCHAR2(255)	NULL,                   -- 극장 권역
+	address	VARCHAR2(255)	NOT NULL,               -- 극장 상세주소
+	room	NUMBER	NOT NULL,                           -- 보유 관 수
+	seat	NUMBER	NOT NULL,                       -- 보유 좌석 수
+	regdate	DATE	DEFAULT sysdate,                -- 극장 등록일
+	useyn	VARCHAR2(2)	DEFAULT 'n'                 -- 극장 사용여부
+);
+
+-- 생성 8. 상영관 시퀀스
+CREATE SEQUENCE room_seq start with 1 increment by 1; 
+-- 생성 8. 상영관 테이블
+CREATE TABLE room (
+    id	NUMBER(20)	NOT NULL	PRIMARY KEY,        -- 상영관 번호
+	numb	NUMBER	NULL,                               -- 상영관 이름
+	cnt	    NUMBER	NOT NULL,                               -- 상영관 좌석 수
+	theater_numb	NUMBER	NOT NULL,                   -- 극장 번호
+    CONSTRAINT fk_theate  FOREIGN KEY (theater_numb) REFERENCES theater(numb)
+);
+
+-- 생성 9. 좌석 시퀀스
+CREATE SEQUENCE seat_seq start with 1 increment by 1; 
+-- 생성 9. 좌석 테이블
+CREATE TABLE seat (
+	id	NUMBER(20)	NOT NULL	PRIMARY KEY,        -- 좌석 번호
+	name	VARCHAR2(20)	NOT NULL,                 -- 좌석 이름
+	room_id	 NUMBER(20)	NOT NULL,                   -- 상영관 번호
+    CONSTRAINT fk_room  FOREIGN KEY (room_id) REFERENCES room(id )
+);
+
+-- 생성 10. 상영일 시퀀스
+CREATE SEQUENCE schedule_seq start with 1 increment by 1; 
+-- 생성 10. 상영일 테이블
+CREATE TABLE schedule (
+	numb	NUMBER	NOT NULL	PRIMARY KEY,        -- 상영일정 번호
+	s_day	date	NULL,                           -- 상영일
+	start_time	VARCHAR2(10)	NOT NULL,                   -- 시작 시간
+	end_time	VARCHAR2(10)	NOT NULL,                   -- 종료 시간
+	regdate	DATE	DEFAULT sysdate,                -- 상열일정 등록일
+	theater_numb	NUMBER NOT NULL,                -- 극장 번호
+	movie_numb	NUMBER	NOT NULL,                   -- 영화 번호
+    room_numb NUMBER(20) NOT NULL,                      -- 관 아이디
+    CONSTRAINT fk_theater FOREIGN KEY (theater_numb) REFERENCES theater(numb),
+    CONSTRAINT fk_movi FOREIGN KEY (movie_numb) REFERENCES movie(numb),
+    CONSTRAINT fk_roo FOREIGN KEY (room_numb) REFERENCES room(id)
+);
+
+-- 생성 11. 예매 시퀀스
+CREATE SEQUENCE ticketing_seq start with 1 increment by 1; 
+-- 생성 11. 예매 테이블
+CREATE TABLE ticketing (
+	numb	NUMBER	NOT NULL	PRIMARY KEY,        -- 예매 번호
+	p_num	NUMBER	NOT NULL,                       -- 예매 인원
+	price	NUMBER	NOT NULL,                       -- 결제 가격
+	seat_name	VARCHAR2(100)	NOT NULL,           -- 좌석 번호
+	regdate	DATE	DEFAULT sysdate,                -- 예매일
+	cancelyn	VARCHAR2(2)	NOT NULL,               -- 취소 여부
+	user_id	VARCHAR2(20)	NOT NULL,               -- 예매 사용자 아이디
+	schedule_numb	NUMBER	NOT NULL,               -- 상영일정 번호
+	movie_numb	NUMBER	NOT NULL,                   -- 영화 번호
+    CONSTRAINT fk_use FOREIGN KEY (user_id) REFERENCES users(id),
+    CONSTRAINT fk_schedule FOREIGN KEY (schedule_numb) REFERENCES schedule(numb),
+    CONSTRAINT fk_mov FOREIGN KEY (movie_numb) REFERENCES movie(numb)
+);
+
+-- 생성 12. 리뷰 시퀀스
+CREATE SEQUENCE review_seq start with 1 increment by 1; 
+-- 생성 12. 리뷰 테이블
+CREATE TABLE review (
+	numb	NUMBER	NOT NULL PRIMARY KEY,       -- 리뷰 번호
+	comments	VARCHAR2(100)	NOT NULL,       -- 리뷰 내용
+	stars	NUMBER	NULL,                       -- 리뷰 별점
+	regdate	DATE	DEFAULT sysdate,            -- 리뷰 등록일
+	user_id VARCHAR2(20)	NOT NULL,           -- 리뷰 작성자
+	movie_numb	NUMBER	NOT NULL,               -- 영화 번호
+    ticketing_numb NUMBER NOT NULL,             -- 예매 번호
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id),
+    CONSTRAINT fk_movie FOREIGN KEY (movie_numb) REFERENCES movie(numb),
+    CONSTRAINT fk_ticketing FOREIGN KEY (ticketing_numb) REFERENCES ticketing(numb)
+);
+
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------- 테이블, 시퀀스 삭제 ----------------------------------------
+---------------------------------------------------------------------------------------------------		
+
+
+-- 테이블 삭제
+drop table admin cascade constraints;
+drop table users cascade constraints;
+drop table notice cascade constraints;
+drop table qna cascade constraints;
+drop table review cascade constraints;
+DROP TABLE movie CASCADE CONSTRAINTS;
+DROP TABLE schedule CASCADE CONSTRAINTS;
+DROP TABLE poster CASCADE CONSTRAINTS;
+DROP TABLE review CASCADE CONSTRAINTS;
+DROP TABLE room CASCADE CONSTRAINTS;
+DROP TABLE seat CASCADE CONSTRAINTS;
+DROP TABLE theater CASCADE CONSTRAINTS;
+DROP TABLE ticketing CASCADE CONSTRAINTS;
+
+-- 시퀀스 삭제
+drop sequence ticketing_seq;
+drop sequence movie_seq;
+drop sequence notice_seq;
+drop sequence poster_seq;
+drop sequence qna_seq;
+drop sequence review_seq;
+drop sequence room_seq;
+drop sequence schedule_seq;
+drop sequence seat_seq;
+drop sequence theater_seq;
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------- 뷰 생성 ----------------------------------------------
+---------------------------------------------------------------------------------------------------		
+-- 작성자: 허장욱
+-- 1. 예매: 영화 목록 출력을 위한 sql문 View 생성
+-- scheduleMapper
+create or replace view movie_list as 
+		SELECT m.numb, m.title, s.theater_numb FROM schedule s  
+        JOIN theater t ON t.numb = s.theater_numb
+        JOIN movie m ON m.numb = s.movie_numb
+        				AND m.ny='n'
+				ORDER BY 1 ASC;
+                
+-- 2.예매 : 상영 일정 출력을 위한 sql문 View 생성
+create or replace view schedule_list as 
+select s.numb numb, m.numb movie_numb, m.title title, m.age age, r.id room_numb, r.numb rnumb, s.start_time,s.end_time, r.cnt scnt, s.s_day, t.numb theater_numb
+FROM schedule s
+JOIN theater t ON t.numb = s.theater_numb
+JOIN movie m ON m.numb = s.movie_numb
+JOIN room r ON s.room_numb = r.id order by s_day;
+
+-- 3. 예매 목록 출력 뷰 생성
+CREATE OR REPLACE VIEW ticketing_list AS
+SELECT distinct t.numb, t.user_id, th.name th_name, r.numb r_numb, m.title movie_title
+    , s.s_day start_day, s.start_time start_time, s.end_time end_time,
+      t.p_num, t.price, t.regdate, t.cancelyn
+    FROM ticketing t
+        JOIN schedule s ON t.schedule_numb = s.numb
+        JOIN theater th ON s.theater_numb = th.numb
+        JOIN room r ON s.room_numb = r.id
+        JOIN movie m ON t.movie_numb = m.numb 
+        order by numb desc;
+        
+SELECT * FROM ticketing_list;
+
+-- 4. 사용자: 예매 내역 출력 (상영일자, 상영종료시간 정보 필요)
+CREATE OR REPLACE VIEW user_ticketing_list AS
+SELECT row_number() OVER (ORDER BY t.numb) rn, t.numb, m.title movie_title, th.name th_name, r.numb r_numb, s.s_day start_day
+    , start_time
+    , t.p_num, t.seat_name, t.price, t.regdate
+    -- 예매 상세 추가 필요 정보
+    , m.poster_url, m.age, cancelyn
+    -- 검색 조건을 위한 필요 정보
+    , t.user_id
+    FROM ticketing t
+    JOIN schedule s ON t.schedule_numb = s.numb
+    JOIN movie m ON m.numb = t.movie_numb
+    JOIN theater th ON th.numb = s.theater_numb
+    JOIN room r ON r.id = s.room_numb;
+
+-- 사용자 id를 검색하여 예매 목록 출력  ----- 보류 
+CREATE OR REPLACE VIEW user_ticketing_list AS
+SELECT t.numb, m.title movie_title, th.name th_name, r.numb r_numb, s.s_day start_day
+    ,s.start_time start_time
+    , t.p_num, t.seat_name, t.price, t.regdate
+    -- 예매 상세 추가 필요 정보
+    , m.poster_url, m.age, cancelyn
+    -- 검색 조건을 위한 필요 정보
+    , t.user_id
+    FROM ticketing t
+    JOIN schedule s ON t.schedule_numb = s.numb
+    JOIN movie m ON m.numb = t.movie_numb
+    JOIN theater th ON th.numb = s.theater_numb
+    JOIN room r ON r.id = s.room_numb;
+
+-- 작성자: 조윤서
+-- 영화 목록 조회 예매건수 순
+CREATE OR REPLACE VIEW movieList_view
+AS
+SELECT title, poster_url, numb, reservation_count
+FROM (
+  SELECT m.title, m.poster_url, m.numb, COUNT(t.numb) AS reservation_count,
+         ROW_NUMBER() OVER (ORDER BY COUNT(t.numb) DESC) AS row_num
+  FROM movie m
+  FULL OUTER JOIN ticketing t ON m.numb = t.movie_numb
+  WHERE m.ny = 'n' -- 상영 중인 영화만 선택
+  GROUP BY m.title, m.poster_url, m.numb
+)
+WHERE row_num <= 4;
+
+-- 2. 스틸컷인서트 셀렉트박스용
+ CREATE OR REPLACE VIEW movieList_view2
+	AS SELECT m.title, m.numb
+    FROM movie m
+    ORDER BY m.title ASC;
+    
+    select * from movieList_view2;
+
+-- 3. 현재상영/개봉예정 영화 셀렉용   
+CREATE OR REPLACE VIEW movieList_view3
+AS
+SELECT m.title, m.numb, m.ny, m.poster_url, m.opendate
+FROM movie m
+WHERE m.ny = 'n' -- ny 값이 'n'인 것만 선택
+ORDER BY m.opendate ASC;
+        select * from movieList_view3; 
+    
+-- 4. 영화 스틸컷 view 
+CREATE OR REPLACE VIEW stillcut_view AS
+SELECT p.stillcut, p.movie_numb
+FROM poster p
+JOIN movie m ON p.movie_numb = m.numb;
+
+-- 작성자: 정영훈
+CREATE VIEW top_5_notices AS
+	SELECT *
+	FROM (SELECT * FROM notice ORDER BY regdate DESC)
+	WHERE ROWNUM <= 5;
