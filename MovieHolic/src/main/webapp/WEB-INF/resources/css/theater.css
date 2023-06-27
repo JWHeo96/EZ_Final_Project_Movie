@@ -78,16 +78,19 @@
     	height: 300px;
     }
     
-    .bar {
+.bar {
   height: 25px;
   background-color: #503396;
   color: #fff;
   padding: 10px;
   display: flex;
   flex-direction: row; /* 수평 방향으로 정렬 */
-  align-items: center; /* 수직 방향으로 가운데 정렬 */
-  justify-content: space-between; /* 수평 방향으로 아이템 간격을 동일하게 정렬 */
-  padding-left: 400px; /* 왼쪽 여백 추가 */
+  align-items: center;
+  justify-content: center; /* 수평 방향으로 중앙 정렬 */
+}
+
+.bar > * {
+  transform: translateX(-450px);
 }
 
    .middle {

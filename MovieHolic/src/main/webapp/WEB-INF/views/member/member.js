@@ -181,11 +181,12 @@ function go_save() {
 	}
 
 	var tel = getPhoneNumber();
+	debugger;
 	console.log(tel);
+	debugger;
 	document.getElementById("join").elements.namedItem("tel").value = tel;
 
 	document.getElementById("join").action = "join"; // 회원가입 요청 URL
-	alert('회원가입이 완료되었습니다!');
 	document.getElementById("join").submit();
 
 }
