@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!-- 카카오 지도 API 스크립트를 로드합니다 -->
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=79e85ca7dbebb891beea0558c07823ba"></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d8a7b395ab3bd31a27f274644b5f1b7"></script>
 <style>
 #map {
 	position: relative;

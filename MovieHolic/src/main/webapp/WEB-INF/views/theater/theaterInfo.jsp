@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script
-	src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=79e85ca7dbebb891beea0558c07823ba&libraries=services"></script>
+	src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1d8a7b395ab3bd31a27f274644b5f1b7&libraries=services"></script>
 <script src="theater/theater.js"></script>
 <div class="bar">
 	<div>

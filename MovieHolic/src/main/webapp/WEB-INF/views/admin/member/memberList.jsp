@@ -60,6 +60,7 @@
 				        <td>
 							<c:choose>
 								<c:when test="${memberVO.useyn=='n'}">탈퇴회원</c:when>
+								<c:when test="${memberVO.id == 'admin' }">관리자</c:when>
 								<c:otherwise>일반회원</c:otherwise>
 							</c:choose>
 						</td>
