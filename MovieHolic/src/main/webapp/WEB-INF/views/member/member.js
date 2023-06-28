@@ -201,6 +201,7 @@ function idok(id, message) {
 	
 	if(message == -1){
 		opener.formm.id.disabled = true;
+		opener.formm.id.style.backgroundColor = "aliceblue";
 	}
 	
 	self.close(); // ID 중복체크 윈도우(작은창) 닫기	
