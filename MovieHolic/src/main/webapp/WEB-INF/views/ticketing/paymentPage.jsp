@@ -93,7 +93,7 @@
     </tr>
     <tr>
       <td>총 결제금액</td>
-      <td>${totalPrice}원</td>
+      <td><fmt:formatNumber value="${totalPrice}" type="number" pattern="#,###" />원</td>
     </tr>
     <tr>
       <td>극장</td>

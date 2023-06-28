@@ -51,6 +51,11 @@
 			</tr>
 		</thead>
 		<tbody>
+		<c:if test="${empty allTicketingList}">
+			<tr>
+				<td colspan="12">예매 내역이 존재하지 않습니다.</td>
+			</tr>
+		</c:if>
 		<c:forEach items="${allTicketingList}" var="ticketingVO">
 			<tr height="50px">
 				<td>${ticketingVO.numb}</td>
@@ -62,7 +67,7 @@
 				<td>${ticketingVO.start_time}</td>
 				<td>${ticketingVO.end_time}</td>
 				<td>${ticketingVO.p_num}</td>
-				<td>${ticketingVO.price}</td>
+				<td><fmt:formatNumber value="${ticketingVO.price}" type="number" pattern="#,###" /></td>
 				<td><fmt:formatDate value="${ticketingVO.regdate}" pattern="yyyy-MM-dd" /></td>
 				
 				<c:choose>

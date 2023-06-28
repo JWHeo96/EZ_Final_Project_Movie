@@ -310,7 +310,7 @@ td {
                   <!-- 클래스 추가 -->
                   <td>${ticketingVO.p_num}명</td>
                   <td>${ticketingVO.seat_name}</td>
-                  <td>${ticketingVO.price}원</td>
+                  <td><fmt:formatNumber value="${ticketingVO.price}" type="number" pattern="#,###" />원</td>
                   <td><fmt:formatDate value="${ticketingVO.regdate}"
                         pattern="yyyy-MM-dd" /></td>
                   <c:choose>

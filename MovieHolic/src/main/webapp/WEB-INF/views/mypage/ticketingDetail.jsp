@@ -79,7 +79,7 @@ background-color: #FFFFFA;
     </tr>
     <tr>
       <td><b>결제 금액 (${ticketingVO.p_num}매)</b></td>
-      <td>${ticketingVO.price}원</td>
+        <td><fmt:formatNumber value="${ticketingVO.price}" type="number" pattern="#,###" />원</td>
     </tr>
     <tr>
       <td rowspan="2"><b>상태</td>
