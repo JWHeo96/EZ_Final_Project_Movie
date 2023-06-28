@@ -190,15 +190,23 @@ function go_save() {
 	document.getElementById("join").submit();
 
 }
+
 // --login.jsp
 // idcheck.jsp
-function idok(id) {
+function idok(id, message) {
 	if(id!=null){
-	opener.formm.id.value = id;
-	opener.formm.reid.value = id; //reid 중복체크 했는지 확인을 위해 값을 보냄
+		opener.formm.id.value = id;
+		opener.formm.reid.value = id; //reid 중복체크 했는지 확인을 위해 값을 보냄
 	}
-	self.close(); // ID 중복체크 윈도우(작은창) 닫기
+	
+	if(message == -1){
+		opener.formm.id.disabled = true;
+	}
+	
+	self.close(); // ID 중복체크 윈도우(작은창) 닫기	
 }
+
+
 
 
 // findPwdResult.jsp
