@@ -207,6 +207,13 @@ function idok(id, message) {
 	self.close(); // ID 중복체크 윈도우(작은창) 닫기	
 }
 
+function resetId() {
+	opener.formm.id.value = "";
+	opener.formm.reid.value = ""; 
+	
+	self.close(); // ID 중복체크 윈도우(작은창) 닫기	
+}
+
 
 
 

@@ -27,7 +27,7 @@
       <c:if test="${message == -1}">
         ${id}는 사용 가능한 ID입니다.
       <br><br><br><button type="button" class="cancel" onclick="idok('${id}', '${message }')">사용</button>	<br>
-    	
+    	<button type="button" class="cancel" onclick="resetId()">취소</button>
       </c:if>
     </div>
   </form>
