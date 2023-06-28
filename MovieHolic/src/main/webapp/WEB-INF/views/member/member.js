@@ -350,6 +350,18 @@ function blockKoreanInput(event) {
 	  return pattern.test(event.key);
 	}
 
+function blockKoreanInput2(event) {
+	  var keyCode = event.which || event.keyCode;
+	  var inputValue = event.target.value || "";
+	  var pattern = /^[a-zA-Z0-9]*$/;
+
+	  if (/[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(inputValue)) {
+	    event.target.value = inputValue.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+	    return false;
+	  }
+
+	  return pattern.test(event.key);
+}
 
 
 function fn_press(event, type) {

@@ -24,7 +24,7 @@
 			<form id="join" method="post" name="formm">
 				<h1 class="loginh1">회원가입</h1><br>
 				<div class="id-container">
-					<input onkeydown="return blockKoreanInput(event)" oninput="blockKoreanInput(this)" type="text" name="id" id="id" placeholder="ID" value="${id}" size="20"
+					<input onkeydown="return blockKoreanInput2(event)" oninput="blockKoreanInput2(this)" type="text" name="id" id="id" placeholder="ID" value="${id}" size="20"
 					maxlength="20">
 					<input type="button" value="중복 체크"  onclick="idcheck()">
 				</div>
