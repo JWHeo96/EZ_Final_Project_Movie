@@ -809,6 +809,8 @@ public class AdminController {
 			} else {
 				QnaVO qna = qnaService.getQna(numb);
 				
+				
+				
 				model.addAttribute("qnaVO", qna);
 				
 				return "admin/qna/qnaDetail";
@@ -829,6 +831,9 @@ public class AdminController {
 			if (loginUser == null) {
 				return "redirect:login_form";
 			} else {
+				
+				vo.setReply(vo.getReply().replace("\r\n","<br>"));
+				
 				qnaService.updateQna(vo);
 						
 				return "redirect:list_admin_qna";

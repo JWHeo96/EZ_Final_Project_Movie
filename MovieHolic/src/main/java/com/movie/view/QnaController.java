@@ -90,9 +90,13 @@ public class QnaController {
 					
 		} else {
 		
+			
+			
 			// vo에 id정보가 없기 때문에 로그인 되어있는 id를 vo에 저장.
 			vo.setUser_id(loginUser.getId());			
 			
+			
+			vo.setContent(vo.getContent().replace("\r\n","<br>"));
 			// service파일에서 insertqna 실행
 			qnaService.insertQna(vo);
 				

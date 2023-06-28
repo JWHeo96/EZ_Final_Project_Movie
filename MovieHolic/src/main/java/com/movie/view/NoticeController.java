@@ -126,6 +126,8 @@ public class NoticeController {
 	@PostMapping("/notice_write")
 	public String noticeWrite(NoticeVO vo) {
 		
+		vo.setContent(vo.getContent().replace("\r\n","<br>"));
+		
 		noticeService.insertnotice(vo); // 입력값을 데이터베이스에 저장
 
 		return "redirect:notice_list_admin"; // 내용처리 후 넘어가는 페이지 
@@ -146,9 +148,15 @@ public class NoticeController {
 	@RequestMapping("/notice_update")
 	public String noticeUpdateForm(@RequestParam(value="numb") int numb, Model model) {
 		
+		
+		
+		
 		// Service 파일에 있는 getNotice를 가져오면 vo에 담겨있는 Numb를 가지고 조회함
 			NoticeVO notice = noticeService.getNotice(numb);
 				
+			notice.setContent(notice.getContent().replace("<br>","\r\n"));
+			
+			
 			// 화면에 전달할  목록 저장
 			model.addAttribute("noticeVO", notice);
 				
@@ -157,6 +165,9 @@ public class NoticeController {
 	
 	@PostMapping("/notice_update_action")
 	public String noticeUpdateAction(NoticeVO vo) {
+		
+		vo.setContent(vo.getContent().replace("\r\n","<br>"));
+		
 		System.out.println(vo);
 		noticeService.updateNotice(vo);
 		
