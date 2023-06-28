@@ -52,10 +52,10 @@
 &nbsp;&nbsp;&nbsp;
             <div class="footer-info">
                 <div>
-                    <address>서울특별시 성동구 왕십리로 50, 6층 (성수동1가, 메가박스 스퀘어)&nbsp;ARS 1544-0070</address>
+                    <address>서울특별시 성동구 왕십리로 50, 6층 (성수동1가, 무비홀릭 스퀘어)&nbsp;ARS 1544-0070</address>
                     
                 </div>
-                <p>대표자명 홍정인  &middot; 개인정보보호책임자 공성진 &middot; 사업자등록번호 211-86-59478 &middot; 통신판매업신고번호 2023-서울성동-0177</p>
+                <p>대표자명 허장욱, 정영훈  &middot; 개인정보보호책임자 양리나, 조윤서 &middot; 사업자등록번호 211-86-59478 &middot; 통신판매업신고번호 2023-서울성동-0177</p>
                 
 
                 <p class="copy">COPYRIGHT &copy; MegaboxJoongAng, Inc. All rights reserved</p>
