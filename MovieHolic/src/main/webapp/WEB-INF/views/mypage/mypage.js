@@ -67,6 +67,7 @@ function go_mod_save(){
       var theform = document.getElementById("update_form");
       theform.action="userUpdate";
       theform.submit();
+      alert('회원 수정이 완료되었습니다!');
    
    
    
