@@ -14,7 +14,7 @@
 <script>
     var naverLogin = new naver.LoginWithNaverId({
         clientId: "JR2pDpAzcnTfXmUinpSh", // 본인걸로 수정, 띄어쓰기 금지.
-        callbackUrl: "http://localhost:8081/movie/index", // 아무거나 설정
+        callbackUrl: "http://192.168.0.80:8081/movie/index", // 아무거나 설정
         isPopup: false,
         callbackHandle: true
     });
@@ -48,7 +48,7 @@
                 } else if(result=='no') {
                     console.log('실패')
                     alert('이미 가입된 이메일입니다\n가입하신 아이디로 로그인 해주세요');
-                    location.replace("http://localhost:8081/movie/login_form")
+                    location.replace("http://192.168.0.80:8081/movie/login_form")
                 }
             },
             error: function(result) {

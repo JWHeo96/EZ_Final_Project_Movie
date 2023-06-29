@@ -448,7 +448,6 @@ public class MemberController {
     
     @RequestMapping(value="naverSave", method=RequestMethod.POST)
     public @ResponseBody String naverSave(Model model, @RequestParam("n_birthyear") String birthyear, @RequestParam("n_tel") String n_tel, @RequestParam("n_age") String n_age, @RequestParam("n_birthday") String n_birthday, @RequestParam("n_email") String n_email, @RequestParam("n_gender") String n_gender, @RequestParam("n_id") String n_id, @RequestParam("n_name") String n_name, @RequestParam("n_nickName") String n_nickName) {
-
     MemberVO member = new MemberVO();
     member.setId(n_email);
     member.setPwd("1234");
