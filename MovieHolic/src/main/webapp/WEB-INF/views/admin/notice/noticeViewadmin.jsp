@@ -27,7 +27,7 @@
 			<hr class="hr">
 			<br>
 			<br>
-			<p>${noticeVO.content}</p>
+			<p style="word-break: break-all;">${noticeVO.content}</p>
 			<br>
 			<br>
 			<hr class="hr">

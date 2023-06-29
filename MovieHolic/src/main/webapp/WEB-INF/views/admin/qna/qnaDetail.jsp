@@ -14,7 +14,7 @@
 	<form name="frm" method="post" id="formm">
 		<div>
 		<input type="hidden" name="numb" value="${qnaVO.numb}">
-		<table class="tableall">
+		<table class="tableall"  style="word-break: break-all;">
 			<tr>
 				<th width="165px">제목</th>
 				<td width="390px">${qnaVO.title}</td>
@@ -30,7 +30,7 @@
 		</table><br>
 		<c:choose>
 			<c:when test='${qnaVO.repyn=="n"}'>
-				<table  style="text-align:center">
+				<table  style="text-align:center; word-break: break-all;">
 
 					<tr>
 						<th width="30%">답변</th>
@@ -48,7 +48,7 @@
 				</div>
 			</c:when>
 			<c:otherwise>
-				<table  style="text-align:center">
+				<table  style="text-align:center; word-break: break-all;">
 					<tr>
 						<th width="160px">답변</th>
 						<td width="375px">${qnaVO.reply}</td>

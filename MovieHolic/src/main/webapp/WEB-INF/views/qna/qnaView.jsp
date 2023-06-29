@@ -12,7 +12,7 @@
 	<hr width="50%"><br>
 	
     <form name="formm" method="post" id="formm">
-	    <table>
+	    <table style="word-break: break-all;">
 	      <tr>
 	        <th>제목</th>
 	        <td>${qnaVO.title}</td> 
