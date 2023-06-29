@@ -130,7 +130,12 @@ public class TicketingController {
 		if (loginUser == null) {
 			return "redirect:login_form";
 		} else {
+			
+			System.out.println(vo);
+			
 			ticketingService.cancelTicketing(vo.getNumb());
+			double point = vo.getPrice()*0.01*-1;
+			memberService.insertPoint(loginUser.getId(), point);
 	
 			return "redirect:mypage";
 		}

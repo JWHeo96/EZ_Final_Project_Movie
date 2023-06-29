@@ -170,7 +170,8 @@ background-color: #FFFFFA;
 		if (confirm("예매를 취소하시겠습니까?")) {
 			// 사용자가 "예"를 선택한 경우
 			var numb = "${ticketingVO.numb}"; // 예매번호 값
-			location.href = "/movie/cancel_ticketing?numb=" + numb; // 예매 취소 URL로 이동
+			var price = "${ticketingVO.price}";
+			location.href = "/movie/cancel_ticketing?numb=" + numb + "&price=" + price; // 예매 취소 URL로 이동
 			alert("예매 취소가 완료되었습니다."); // 예매 취소 완료 알림 창 띄우기
 		} else {
 			// 사용자가 "아니오"를 선택한 경우

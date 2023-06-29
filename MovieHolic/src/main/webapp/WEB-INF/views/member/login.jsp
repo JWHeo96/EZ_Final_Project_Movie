@@ -36,7 +36,7 @@
 	    		<input type="password"  name="pwd" id="pwd" placeholder="Password" size="20" maxlength="20">
 	    		<input type="password"  name="pwdCheck" id="pwdCheck" placeholder="Password" size="20" maxlength="20">
 				
-				<input onkeypress="return isHangulKey(event)" type="text" name="name" id="name" placeholder="Name" size="20" >
+				<input onkeypress="return isHangulKey(event)" type="text" name="name" id="name" placeholder="Name" size="20" maxlength="20">
 				
 				<div class="tel-container">
 				<select id="phone1" style="width:98px; height:40px; text-align:center;">

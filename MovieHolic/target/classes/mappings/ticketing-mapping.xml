@@ -54,7 +54,7 @@
 	
 	<!-- 예매취소 기능 처리 -->
 	<update id="cancelTicketing">
-		UPDATE ticketing SET cancelyn='y' 
+		UPDATE ticketing SET cancelyn='y'
 		WHERE numb=#{numb} 	
 	</update>
 	
