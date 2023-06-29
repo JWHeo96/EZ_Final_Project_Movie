@@ -11,10 +11,10 @@
 		<form name="formm" method="post" action="qna_write">
 			
 			<div>
-				<input type="text" name="title"  size="60"  placeholder="제목">
+				<input type="text" name="title"  size="60"  placeholder="제목" maxlength="60">
 			</div>
 			<div>   
-				 <textarea rows="20" cols="62" name="content"  placeholder="내용"></textarea>
+				 <textarea rows="20" cols="62" name="content"  placeholder="내용"  maxlength="255"></textarea>
 			</div>
 		    <br><br>
 		

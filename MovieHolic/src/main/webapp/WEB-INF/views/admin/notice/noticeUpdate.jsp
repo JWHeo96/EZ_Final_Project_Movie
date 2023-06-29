@@ -14,12 +14,12 @@
 
 				<label>제목</label>
 				<br> 
-				<input type="text" name="title" value="${noticeVO.title }" size="63">
+				<input type="text" name="title" value="${noticeVO.title }" size="63"  maxlength="60">
 				<br>
 				<br> 
 				<label>내용</label>
 				<br>
-				<textarea rows="20" cols="65" name="content">${noticeVO.content }</textarea>
+				<textarea rows="20" cols="65" name="content"  maxlength="255">${noticeVO.content }</textarea>
 				<br>
 				
 			</fieldset>

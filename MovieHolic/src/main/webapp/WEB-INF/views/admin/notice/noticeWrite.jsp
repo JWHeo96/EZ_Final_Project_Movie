@@ -14,12 +14,12 @@
 
 				<label>제목</label>
 				<br> 
-				<input type="text" name="title" size="63">
+				<input type="text" name="title" size="63"  maxlength="60">
 				<br>
 				<br> 
 				<label>내용</label>
 				<br>
-				<textarea rows="20" cols="65" name="content"></textarea>
+				<textarea rows="20" cols="65" name="content"  maxlength="255"></textarea>
 				<br>
 				
 			</fieldset>
