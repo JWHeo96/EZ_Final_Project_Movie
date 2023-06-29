@@ -10,6 +10,9 @@
 <title>Login</title>
 <link rel="stylesheet" href="css/login.css" />
 <script src="member/member.js"></script>
+<!-- 네아로 SDK -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+ 
 </head>
 
 <!-- HTML 내용 생략 -->
@@ -170,8 +173,23 @@
 				</span>
 				<br>
 				<button type="submit" class="submit">Login</button>
-		
+				<br>
+				<div id="naverIdLogin"></div>
 			</form>
+			<script type="text/javascript">
+    var naverLogin = new naver.LoginWithNaverId(
+        {
+            clientId: "JR2pDpAzcnTfXmUinpSh",
+              // 본인의 Client ID로 수정, 띄어쓰기는 사용하지 마세요.
+            callbackUrl: "http://localhost:8081/movie/callback",
+              // 본인의 callBack url로 수정하세요.
+            isPopup: false,
+            loginButton: {color: "white", type: 3, height: 40}
+              // 네이버 로그인버튼 디자인 설정. 한번 바꿔보세요:D
+        }
+    );
+naverLogin.init();
+</script>
 			
 		
 				

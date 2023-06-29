@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -439,6 +440,40 @@ public class MemberController {
 	
 	
 	
+    @RequestMapping(value="/callback", method=RequestMethod.GET)
+    public String callBack(){
+        return "/member/callback";
+    }
+    
+    @RequestMapping(value="naverSave", method=RequestMethod.POST)
+    public @ResponseBody String naverSave(Model model,@RequestParam("n_birthyear") String birthyear, @RequestParam("n_tel") String n_tel, @RequestParam("n_age") String n_age, @RequestParam("n_birthday") String n_birthday, @RequestParam("n_email") String n_email, @RequestParam("n_gender") String n_gender, @RequestParam("n_id") String n_id, @RequestParam("n_name") String n_name, @RequestParam("n_nickName") String n_nickName) {
+
+    MemberVO member = new MemberVO();
+    member.setId(n_id);
+    member.setPwd("1234");
+    member.setName(n_name);
+    member.setTel(n_tel.replace("-", ""));
+    member.setBirth(birthyear + n_birthday.replace("-", ""));
+    member.setEmail(n_email);
+    member.setPoint(0);
+    
+    System.out.println(member);
+    String result = null;
+    
+    MemberVO vo = memberService.getMember(n_id);
+    if(vo == null) {
+    	memberService.insertMember(member);
+    } 
+    
+    if(member!=null) {
+        result = "ok";
+        model.addAttribute("loginUser", memberService.getMember(n_id));
+    }
+ 
+    return result;
+    
+    }
+
 	
 }
 
