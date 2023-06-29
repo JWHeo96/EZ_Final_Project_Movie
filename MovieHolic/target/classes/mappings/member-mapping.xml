@@ -29,7 +29,7 @@
    <select id="checkEmail" resultType="String">
       SELECT email FROM users WHERE email=#{email}
    </select>
-
+   
    <!-- 이름과 이메일로 아이디 찾기  -->
    <select id="selectIdByNameEmail" resultType="String">
       SELECT id FROM users WHERE name=#{name} AND email=#{email} AND useyn='y'

@@ -462,14 +462,19 @@ public class MemberController {
     String result = null;
     
     String vo = memberService.checkEmail(n_email);
+    
     System.out.println(vo);
     if(vo == null) {
     	memberService.insertMember(member);
     }
     
+    MemberVO id = memberService.getMember(n_email);
+    
+    System.out.println("vo는??" + vo);
+    
     if(member!=null) {
-        if(vo !=null ) {
-        	result="no";
+        if(vo!=null && id == null) {
+        	result = "no";
         } else {
         	result = "ok";
         	model.addAttribute("loginUser", memberService.getMember(n_email));
