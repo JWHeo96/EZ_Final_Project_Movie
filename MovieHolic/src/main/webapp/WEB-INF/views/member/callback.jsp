@@ -47,7 +47,7 @@
                     location.replace("index") 
                 } else if(result=='no') {
                     console.log('실패')
-                    alert('로그인 실패!');
+                    alert('이미 가입된 이메일입니다\n가입하신 아이디로 로그인 해주세요');
                     location.replace("http://localhost:8081/movie/login_form")
                 }
             },

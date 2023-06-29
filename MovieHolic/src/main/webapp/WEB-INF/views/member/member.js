@@ -180,14 +180,12 @@ function go_save() {
 		}
 	}
 
-	var tel = getPhoneNumber();
-	debugger;
-	console.log(tel);
-	debugger;
 	document.getElementById("join").elements.namedItem("tel").value = tel;
 
 	document.getElementById("join").action = "join"; // 회원가입 요청 URL
 	document.getElementById("join").submit();
+	
+	alert('회원가입이 완료되었습니다!');
 
 }
 
@@ -200,7 +198,7 @@ function idok(id, message) {
 	}
 	
 	if(message == -1){
-		opener.formm.id.disabled = true;
+		opener.formm.id.readOnly = true;
 		opener.formm.id.style.backgroundColor = "aliceblue";
 	}
 	

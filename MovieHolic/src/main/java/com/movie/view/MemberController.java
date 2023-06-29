@@ -139,6 +139,7 @@ public class MemberController {
 			@RequestParam(value="email2") String email2) {
 		vo.setEmail(email1 + email2);
 		
+		System.out.println(vo);
 		memberService.insertMember(vo); // 입력값을 데이터베이스에 저장
 
 		return "member/login"; // 내용처리 후 넘어가는 페이지 login.jsp
@@ -467,8 +468,12 @@ public class MemberController {
     }
     
     if(member!=null) {
-        result = "ok";
-        model.addAttribute("loginUser", memberService.getMember(n_email));
+        if(vo !=null ) {
+        	result="no";
+        } else {
+        	result = "ok";
+        	model.addAttribute("loginUser", memberService.getMember(n_email));
+        }
     }
  
     return result;
