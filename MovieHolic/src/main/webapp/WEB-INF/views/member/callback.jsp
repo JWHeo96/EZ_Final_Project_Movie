@@ -38,7 +38,7 @@
         $.ajax({
             type: 'post',
             url: 'naverSave',
-            data: {'n_birthyear':birthYear, 'n_tel':tel, 'n_age':age, 'n_birthday':birthday, 'n_email':email, 'n_gender':gender, 'n_id':id, 'n_name':name, 'n_nickName':nickName},
+            data: {'n_id': id,'n_birthyear':birthYear, 'n_tel':tel, 'n_age':age, 'n_birthday':birthday, 'n_email':email, 'n_gender':gender, 'n_id':id, 'n_name':name, 'n_nickName':nickName},
             dataType: 'text',
             success: function(result) {
                 if(result=='ok') {
@@ -47,7 +47,7 @@
                     location.replace("index") 
                 } else if(result=='no') {
                     console.log('실패')
-                    alert('로그인에 실패하였습니다!');
+                    alert('로그인 실패!');
                     location.replace("http://localhost:8081/movie/login_form")
                 }
             },

@@ -446,10 +446,10 @@ public class MemberController {
     }
     
     @RequestMapping(value="naverSave", method=RequestMethod.POST)
-    public @ResponseBody String naverSave(Model model,@RequestParam("n_birthyear") String birthyear, @RequestParam("n_tel") String n_tel, @RequestParam("n_age") String n_age, @RequestParam("n_birthday") String n_birthday, @RequestParam("n_email") String n_email, @RequestParam("n_gender") String n_gender, @RequestParam("n_id") String n_id, @RequestParam("n_name") String n_name, @RequestParam("n_nickName") String n_nickName) {
+    public @ResponseBody String naverSave(Model model, @RequestParam("n_birthyear") String birthyear, @RequestParam("n_tel") String n_tel, @RequestParam("n_age") String n_age, @RequestParam("n_birthday") String n_birthday, @RequestParam("n_email") String n_email, @RequestParam("n_gender") String n_gender, @RequestParam("n_id") String n_id, @RequestParam("n_name") String n_name, @RequestParam("n_nickName") String n_nickName) {
 
     MemberVO member = new MemberVO();
-    member.setId(n_id);
+    member.setId(n_email);
     member.setPwd("1234");
     member.setName(n_name);
     member.setTel(n_tel.replace("-", ""));
@@ -460,14 +460,15 @@ public class MemberController {
     System.out.println(member);
     String result = null;
     
-    MemberVO vo = memberService.getMember(n_id);
+    String vo = memberService.checkEmail(n_email);
+    System.out.println(vo);
     if(vo == null) {
     	memberService.insertMember(member);
-    } 
+    }
     
     if(member!=null) {
         result = "ok";
-        model.addAttribute("loginUser", memberService.getMember(n_id));
+        model.addAttribute("loginUser", memberService.getMember(n_email));
     }
  
     return result;

@@ -259,7 +259,19 @@ td {
             <button type="button" onclick="location.href='qna_list'">문의</button>
          </div>
          <div class="my-botton ">
-            <button type="button" onclick="location.href='memberInfo'">회원정보</button>
+         	<c:choose>
+         	<c:when test="${fn:contains(userDetail.id, '@')}">
+            <button type="button" id="userInfo" onclick="naverLogin()">회원정보</button>
+            <script>
+            	function naverLogin() {
+            		alert('네이버 아이디는\n정보 수정이 불가능합니다!');
+            	}
+            </script>
+            </c:when>
+            <c:otherwise>
+            <button type="button" id="userInfo" onclick="location.href='memberInfo'">회원정보</button>
+            </c:otherwise>
+            </c:choose>
          </div>
       </div>
 <img alt="광고이미지" src="https://www.lottecinema.co.kr/NLCHS/Content/images/member/my_club_315_bravo_230301.jpg">
