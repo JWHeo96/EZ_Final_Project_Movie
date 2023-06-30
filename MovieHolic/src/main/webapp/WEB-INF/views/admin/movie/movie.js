@@ -113,6 +113,19 @@ function go_save() {
 		return false;
 	} else {
 		var theform = document.getElementById("movie_form");
+		
+		var title = document.getElementById("title").value;
+        var filteredTitle = title.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+        document.getElementById("title").value = filteredTitle;
+        
+        var story = document.getElementById("story").value;
+        var filteredStory = story.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+        document.getElementById("story").value = filteredStory;
+        
+        var director = document.getElementById("director").value;
+        var filteredDirector = director.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+        document.getElementById("director").value = filteredDirector;
+        
 		theform.enctype = "multipart/form-data";
 		theform.action = "movieInsert";
 		theform.submit();
@@ -189,6 +202,20 @@ function removeStillcut(element, stillcut) {
 
 function go_save2() {
 	var theform = document.getElementById("update_form");
+	
+	var title = document.getElementById("title").value;
+    var filteredTitle = title.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+    document.getElementById("title").value = filteredTitle;
+    
+    var story = document.getElementById("story").value;
+    var filteredStory = story.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+    document.getElementById("story").value = filteredStory;
+    
+    var director = document.getElementById("director").value;
+    var filteredDirector = director.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+    document.getElementById("director").value = filteredDirector;
+    
+	
 	theform.enctype = "multipart/form-data";
 	theform.action = "movieUpdate";
 
