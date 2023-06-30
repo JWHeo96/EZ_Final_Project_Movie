@@ -11,10 +11,10 @@
 </head>
 <body style="background-color:#f2f2f2;">
 <main class="page-content" >
-    <div class="container-fluid">	
-    	   <div class="container" style="text-align:center;">
-	     <h3>영화 등록</h3></div>
-	<hr>
+    <div class="container-fluid">   
+          <div class="container" style="text-align:center;">
+        <h3>영화 등록</h3></div>
+   <hr>
 <div class="container">
   <form class="user-info-form" name="frm" id="movie_form" method="post" enctype="multipart/form-data">
     <ul>
@@ -28,7 +28,7 @@
       <li>
         <div class="input-group">
           <label class="tit" for="userPass">줄거리</label>
-          <textarea class="form-ctrl2" name="story" id="story" rows="4" placeholder="줄거리를 입력하세요" required></textarea>
+          <textarea class="form-ctrl2" name="story" id="story" rows="4" placeholder="줄거리를 입력하세요" required maxlength="1000"></textarea>
         </div>
       </li>
       
@@ -87,12 +87,12 @@
         <div class="input-group user-id">
           <label class="tit" for="userId">배우</label>  
          <div id="directorContainer">
-	      <div class="casterBox">
-	        <textarea name="caster" id="caster" class="form-ctrl" style="height: 30px;"></textarea>
-	        <button type="button" class="btn-caster" onclick="removeTextarea(this.parentNode)">-</button>
-	      </div>
-	    </div>&nbsp;&nbsp;&nbsp;
-	    <button type="button" class="btn-caster" onclick="addMoreTextarea()">+</button> 
+         <div class="casterBox">
+           <textarea name="caster" id="caster" class="form-ctrl" style="height: 30px;"></textarea>
+           <button type="button" class="btn-caster" onclick="removeTextarea(this.parentNode)">-</button>
+         </div>
+       </div>&nbsp;&nbsp;&nbsp;
+       <button type="button" class="btn-caster" onclick="addMoreTextarea()">+</button> 
         </div>
       </li>
       
@@ -113,67 +113,67 @@
       <li>
         <div class="input-group user-id">
           <label class="tit" for="userId">러닝타임</label>
-          <input class="form-ctrl" type="number" name="playtime" id="playtime" placeholder="숫자만 입력하세요       Ex) nn분 >> nn" required>	  
-	 	</div>
+          <input class="form-ctrl" type="number" name="playtime" id="playtime" placeholder="숫자만 입력하세요       Ex) nn분 >> nn" required>     
+       </div>
       </li>
       
       <li>
         <div class="input-group user-id">
           <label class="tit" for="userId">관람 나이</label>
-		  <select class="form-ctrl" name="age" id="age">
-			<option value="0">전체 관람가</option>
-			<option value="12">12세</option>
-			<option value="15">15세</option>
-			<option value="18">18세</option>
-		 </select>
-	 	</div>
+        <select class="form-ctrl" name="age" id="age">
+         <option value="0">전체 관람가</option>
+         <option value="12">12세</option>
+         <option value="15">15세</option>
+         <option value="18">18세</option>
+       </select>
+       </div>
       </li>
       
       <li>
         <div class="input-group user-id">
           <label class="tit" for="userId">나라</label>
-		  <select class="form-ctrl" name="nation" id="nation">
-			<option value="한국">한국</option>
-			<option value="미국">미국</option>
-			<option value="일본">일본</option>
-			<option value="영국">영국</option>
-		 </select>
-	 	</div>
+        <select class="form-ctrl" name="nation" id="nation">
+         <option value="한국">한국</option>
+         <option value="미국">미국</option>
+         <option value="일본">일본</option>
+         <option value="영국">영국</option>
+       </select>
+       </div>
       </li>
       
       <li>
-	  <div class="input-group">
-	  <label class="tit" for="userId">종영 여부</label>
-	  <div class="radio-group">
-	    <label class="radio-label">&nbsp;&nbsp;&nbsp;
-	      <input class="form-ctrl" type="radio" name="ny" id="ny" value="n" checked>
-	      <span>상영 및 개봉예정</span>
-	    </label>&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;
-	    <label class="radio-label">
-	      <input class="form-ctrl" type="radio" name="ny" id="ny" value="y">
-	      <span>종영</span>
-	    </label>
-	  </div>
-	</div>
-	</li>
-	
+     <div class="input-group">
+     <label class="tit" for="userId">종영 여부</label>
+     <div class="radio-group">
+       <label class="radio-label">&nbsp;&nbsp;&nbsp;
+         <input class="form-ctrl" type="radio" name="ny" id="ny" value="n" checked>
+         <span>상영 및 개봉예정</span>
+       </label>&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+       <label class="radio-label">
+         <input class="form-ctrl" type="radio" name="ny" id="ny" value="y">
+         <span>종영</span>
+       </label>
+     </div>
+   </div>
+   </li>
+   
       <li>
         <div class="input-group user-id">
           <label class="tit" for="userId">트레일러</label>
           <input class="form-ctrl" type="text" name="trailer" id="trailer" placeholder="<Ifame> 태그를 입력하세요" required="required">
-		  
-	 	</div>
+        
+       </div>
       </li>
       
       <li>
      <div id="container" class="input-group user-id">
-	  <label class="tit" for="userId">스틸컷</label>
-	  <div id="inputWrapper">
-	    <input class="form-ctrl" type="file" name="stillcut_name" id="stillcut" multiple="multiple">
-	  </div>&nbsp;&nbsp;&nbsp;
-	  <button type="button" onclick="addMoreStillcut()" class="btn-caster">+</button>
-	</div>
+     <label class="tit" for="userId">스틸컷</label>
+     <div id="inputWrapper">
+       <input class="form-ctrl" type="file" name="stillcut_name" id="stillcut" multiple="multiple">
+     </div>&nbsp;&nbsp;&nbsp;
+     <button type="button" onclick="addMoreStillcut()" class="btn-caster">+</button>
+   </div>
       </li>
     </ul>
     <div class="btn-area">
@@ -181,7 +181,7 @@
     </div>
   </form>
 </div>
-	  </div>
+     </div>
   </main>
 </body>
 </html>

@@ -34,7 +34,7 @@
 
 					<tr>
 						<th width="30%">답변</th>
-						<td width="70%"><textarea name="reply" rows="5" cols="50"  maxlength="255"></textarea></td>
+						<td width="70%"><textarea name="reply" id="reply" rows="5" cols="50"  maxlength="255"></textarea></td>
 
 					</tr>
 

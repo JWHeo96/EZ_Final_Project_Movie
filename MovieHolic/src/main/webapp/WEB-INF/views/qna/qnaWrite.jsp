@@ -11,19 +11,30 @@
 		<form name="formm" method="post" action="qna_write">
 			
 			<div>
-				<input type="text" name="title"  size="60"  placeholder="제목" maxlength="60">
+				<input type="text" name="title" id="title" size="60"  placeholder="제목" maxlength="60">
 			</div>
 			<div>   
-				 <textarea rows="20" cols="62" name="content"  placeholder="내용"  maxlength="255"></textarea>
+				 <textarea rows="20" cols="62" name="content" id="content" placeholder="내용"  maxlength="255"></textarea>
 			</div>
 		    <br><br>
 		
 		    <div>
-			  	<button type="submit" class="submit">글쓰기</button>
+			  	<button type="submit" class="submit" onclick="validateInput()">글쓰기</button>
 		 		<button type="button" class="submit" onclick="location.href='qna_list'">목록보기</button><br><br>
 			
 		 	</div>
 		</form>
+		<script>
+		function validateInput() {
+		    var title = document.getElementById("title").value;
+		    var filteredTitle = title.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+		    document.getElementById("title").value = filteredTitle;
+		    
+		    var content = document.getElementById("content").value;
+		    var filteredContent = content.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+		    document.getElementById("content").value = filteredContent;
+		}
+		</script>
 	</div>
 	<br>
 <%@ include file="../footer.jsp" %>

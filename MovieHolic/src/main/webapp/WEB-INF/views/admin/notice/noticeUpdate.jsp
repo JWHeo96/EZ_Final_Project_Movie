@@ -14,12 +14,12 @@
 
 				<label>제목</label>
 				<br> 
-				<input type="text" name="title" value="${noticeVO.title }" size="63"  maxlength="60">
+				<input type="text" name="title" id="title" value="${noticeVO.title }" size="63"  maxlength="60">
 				<br>
 				<br> 
 				<label>내용</label>
 				<br>
-				<textarea rows="20" cols="65" name="content"  maxlength="255">${noticeVO.content }</textarea>
+				<textarea rows="20" cols="65" name="content" id="content"  maxlength="255">${noticeVO.content }</textarea>
 				<br>
 				
 			</fieldset>
@@ -37,6 +37,13 @@
 		function go_update() {
 			if(confirm('수정하시겠습니까?')) {
 				var form = document.getElementById("formm");
+				var title = document.getElementById("title").value;
+		          var filteredTitle = title.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+		          document.getElementById("title").value = filteredTitle;
+		          
+		          var content = document.getElementById("content").value;
+		          var filteredContent = content.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+		          document.getElementById("content").value = filteredContent;
 				form.action="notice_update_action";
 				form.submit();
 				alert("수정이 완료되었습니다!");

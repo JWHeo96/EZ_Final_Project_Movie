@@ -15,6 +15,11 @@ function go_rep(numb) {
 		window.alert("답변 내용을 입력해주세요.");
 		return false; // 함수 실행을 중단합니다.
 	}
+	
+    var reply = document.getElementById("reply").value;
+    var filteredReply = reply.replace(/</g, ""); // '<' 문자를 빈 문자열로 대체
+    document.getElementById("reply").value = filteredReply;
+
 
 	theForm.action = "admin_qna_repsave";
 	theForm.submit();
